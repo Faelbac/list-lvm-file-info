@@ -1,0 +1,21 @@
+LabVIEW Measurement	
+Writer_Version	2
+Reader_Version	2
+Separator	Tab
+Decimal_Separator	,
+Multi_Headings	Yes
+X_Columns	One
+Time_Pref	Relative
+Operator	Helio Amorim
+Date	1903/12/31
+Time	21:00:00,
+***End_of_Header***	
+	
+Channels	3			
+Samples	10000	10000	10000	
+Date	1903/12/31	1903/12/31	1903/12/31	
+Time	21:00:00,	21:00:00,	21:00:00,	
+X_Dimension	Time	Time	Time	
+X0	0,0000000000000000E+0	0,0000000000000000E+0	0,0000000000000000E+0	
+Delta_X	1,000000E-9	1,000000E-9	1,000000E-9	
+***End_of_Header***

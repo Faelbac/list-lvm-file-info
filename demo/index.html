@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>list-lvm-file-info demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../../iron-ajax/iron-ajax.html">
+    <link rel="import" href="../list-lvm-file-info.html">
+    <link rel="import" href="myicons.html">
+
+    <custom-style>
+      <style is="custom-style" include="demo-pages-shared-styles">
+      </style>
+    </custom-style>
+  </head>
+  <body>
+    <div class="vertical-section-container centered">
+      <h3>Basic list-lvm-file-info demo</h3>
+      <demo-snippet>
+        <template>
+          <input
+            id="input"
+            type="file"
+            multiple="multiple"
+          />
+          <iron-ajax
+            id="ajax"
+            url="lvm-filePathList.json"
+            handle-as="json"
+          ></iron-ajax>
+          <list-lvm-file-info
+            id="list"
+            icon="myicons:photo-library"
+          ></list-lvm-file-info>
+        </template>
+      </demo-snippet>
+    </div>
+  </body>
+  <script>
+    ajax = document.querySelector("#ajax");
+    list = document.querySelector("#list");
+    ajax.generateRequest();
+    ajax.addEventListener("response", function(){
+      list.filePathList = this.lastResponse;
+      }
+    );
+    input = document.querySelector("#input");
+    input.addEventListener("input", function(){
+        //list.filePathList = asd;
+        console.log(this.files);
+      }
+    )
+  </script>
+</html>

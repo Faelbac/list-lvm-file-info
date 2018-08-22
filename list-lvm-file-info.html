@@ -1,0 +1,59 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-list/iron-list.html">
+
+<link rel="import" href="../lvm-file-info/lvm-file-info.html">
+<link rel="import" href="../lvm-file-info-reader/lvm-file-info-reader.html">
+
+<dom-module id="list-lvm-file-info">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      .item {
+          padding: 10px;
+      }
+    </style>
+    
+    <iron-list items="[[filePathList]]" as="item">
+      <template>
+        <div class="item">
+            <lvm-file-info-reader lvm-file-url="[[item.path]]" info="{{info}}"></lvm-file-info-reader>
+            <lvm-file-info icon="[[icon]]" info="[[info]]"></lvm-file-info>
+          </div>
+      </template>
+    </iron-list>
+
+  </template>
+
+  <script>
+    /**
+     * `list-lvm-file-info`
+     * Lists lvm-file-info elements.
+     *
+     * @customElement
+     * @polymer
+     * @demo demo/index.html
+     */
+    class ListLvmFileInfo extends Polymer.Element {
+      static get is() { return 'list-lvm-file-info'; }
+      static get properties() {
+        return {
+          filePathList: {
+            type: Array,
+            value: []
+          },
+          icon: {
+            type:String,
+            value: ''
+          }
+        };
+      }
+      constructor() {
+        super();
+      };
+    }
+
+    window.customElements.define(ListLvmFileInfo.is, ListLvmFileInfo);
+  </script>
+</dom-module>
