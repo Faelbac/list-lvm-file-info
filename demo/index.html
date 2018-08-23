@@ -11,6 +11,7 @@
     <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
     <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
     <link rel="import" href="../../iron-ajax/iron-ajax.html">
+    <link rel="import" href="../../iron-input/iron-input.html">
     <link rel="import" href="../list-lvm-file-info.html">
     <link rel="import" href="myicons.html">
 
@@ -24,11 +25,13 @@
       <h3>Basic list-lvm-file-info demo</h3>
       <demo-snippet>
         <template>
-          <input
+          <!--iron-input>
+            <input
             id="input"
             type="file"
             multiple="multiple"
-          />
+            />
+          </iron-input-->
           <iron-ajax
             id="ajax"
             url="lvm-filePathList.json"
@@ -44,17 +47,22 @@
   </body>
   <script>
     ajax = document.querySelector("#ajax");
-    list = document.querySelector("#list");
     ajax.generateRequest();
     ajax.addEventListener("response", function(){
       list.filePathList = this.lastResponse;
       }
     );
-    input = document.querySelector("#input");
+    list = document.querySelector("#list");
+    /*input = document.querySelector("#input");
     input.addEventListener("input", function(){
         //list.filePathList = asd;
-        console.log(this.files);
+        let 
+        for (let j = 0; j < this.files.length; j++){
+          let file = this.files[j]
+          console.log(file.name);
+        }
       }
-    )
+    );
+    */
   </script>
 </html>
